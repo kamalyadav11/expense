@@ -19,7 +19,12 @@ function App() {
 			/>
 		));
 
-	return <div className="App">{renderExpenses()}</div>;
+	return (
+		<div className="App">
+			<div>Most Simple React Application</div>
+			{renderExpenses()}
+		</div>
+	);
 }
 
 export default App;

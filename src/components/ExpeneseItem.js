@@ -1,4 +1,5 @@
 import React from "react";
+import "./ExpenseItem.css";
 
 const ExpeneseItem = ({ title, date, amount }) => {
 	return (
