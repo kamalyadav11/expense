@@ -22,7 +22,7 @@ function App() {
 	return (
 		<div className="App">
 			<div>Most Simple React Application</div>
-			{renderExpenses()}
+			<div className="expense-items">{renderExpenses()}</div>
 		</div>
 	);
 }
