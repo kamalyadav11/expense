@@ -1,11 +1,11 @@
 import "./App.css";
 import Expenses from "./components/Expenses";
+import NewExpense from "./components/NewExpense";
 
 function App() {
 	return (
 		<div className="App">
-			<div>Most Simple React Application</div>
-			<Expenses />
+<NewExpense/>			<Expenses />
 		</div>
 	);
 }
