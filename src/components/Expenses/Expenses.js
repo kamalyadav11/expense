@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../common/Card";
 import ExpeneseItem from "./ExpeneseItem";
+import ExpensesFilter from "./ExpenseFilter";
 import "./Expenses.css";
 
-const Expenses = () => {
-	const expenses = [
-		{ id: "1", title: "Toilet Paper", amount: 54.4, date: new Date() },
-		{ id: "2", title: "Pencil", amount: 354, date: new Date() },
-		{ id: "3", title: "Rubber", amount: 534, date: new Date() },
-		{ id: "4", title: "Sharpner", amount: 23, date: new Date() },
-	];
+const Expenses = ({ expenses }) => {
+	const [selectedDate, setSelectedDate] = useState(new Date().getFullYear());
+
+	const filterExpenseByDate = (date) => {
+		setSelectedDate(date);
+	};
 
 	const renderExpenses = () =>
 		expenses.map((ex) => (
@@ -23,7 +23,13 @@ const Expenses = () => {
 
 	return (
 		<>
-			<Card className="expense-items">{renderExpenses()}</Card>
+			<Card className="expense-items">
+				<ExpensesFilter
+					currentDate={selectedDate}
+					filterExpenseByDate={filterExpenseByDate}
+				/>
+				{renderExpenses()}
+			</Card>
 		</>
 	);
 };
