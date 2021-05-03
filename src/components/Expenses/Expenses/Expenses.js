@@ -2,6 +2,7 @@ import React from "react";
 import Card from "../../common/Card";
 import ExpensesFilter from "../ExpenseFilter/ExpenseFilter";
 import ExpensesList from "../ExpenseList/ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 import "./Expenses.css";
 
 const Expenses = ({ expenses, selectedDate, filterExpenseByDate }) => {
@@ -12,6 +13,7 @@ const Expenses = ({ expenses, selectedDate, filterExpenseByDate }) => {
 					currentDate={selectedDate}
 					filterExpenseByDate={filterExpenseByDate}
 				/>
+				<ExpensesChart expenses={expenses} />
 				<ExpensesList expenses={expenses} />
 			</Card>
 		</>

@@ -17,9 +17,7 @@ const initialExpenses = [
 
 function App() {
 	const [expenses, setExpenses] = useState(initialExpenses);
-	const [selectedDate, setSelectedDate] = useState(
-		new Date().getFullYear().toString()
-	);
+	const [selectedDate, setSelectedDate] = useState("2021");
 
 	const filterExpenseByDate = (date) => {
 		setSelectedDate(date);

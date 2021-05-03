@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = ({ addNewExpense, setShowAddButton, toggleAddButton }) => {
+const ExpenseForm = ({ addNewExpense, toggleAddButton }) => {
 	const [formData, setFormData] = useState({
 		title: "",
 		amount: "",
@@ -10,13 +10,15 @@ const ExpenseForm = ({ addNewExpense, setShowAddButton, toggleAddButton }) => {
 
 	const onChangeHandler = (e) => {
 		const { name, value } = e.target;
-		if (name === "date")
-			setFormData((prevState) => ({ ...prevState, [name]: new Date(value) }));
-		else setFormData((prevState) => ({ ...prevState, [name]: value }));
+		setFormData((prevState) => ({ ...prevState, [name]: value }));
 	};
 
 	const onSubmitHandler = (e) => {
 		e.preventDefault();
+		setFormData((prevState) => ({
+			...prevState,
+			date: new Date(formData.date),
+		}));
 		addNewExpense(formData);
 		toggleAddButton();
 	};
